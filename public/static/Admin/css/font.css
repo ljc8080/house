@@ -13,4 +13,11 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+.errormsg{
+  color:red;
+}
+.successmsg{
+  color:green
+}
+
 

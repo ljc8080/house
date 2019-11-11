@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class Index extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('checklogin');
+    // }
+
     public function index(){
         return view('Admin/Index/index');
     }

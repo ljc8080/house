@@ -63,7 +63,7 @@
                         <dd>
                             <a onclick="xadmin.open('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
                         <dd>
-                            <a href="{{template_path('admin')}}login.html">退出</a></dd>
+                            <a href="{{route('adminlogout')}}">退出</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item to-index">

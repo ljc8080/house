@@ -21,20 +21,11 @@
       .layui-input-block{
         margin-left: 0!important;
       }
-      .loginerror p{
-        color:red;
-      }
     </style>
 </head>
 <body class="login-bg">
     <div class="login layui-anim layui-anim-up">
-        <div class="loginerror">
-          @if ($errors->any())
-              @foreach ($errors->all() as $item)
-                <p>{{$item}}</p>  
-              @endforeach
-          @endif
-        </div>
+       @include('admin.public.msg')
         <div class="message">租房后台管理系统</div>
         <div id="darkbannerwrap"></div>
         
