@@ -12,7 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('admin/Index/index');
+    if(auth()->check()){
+        return view('admin/Index/index');
+    }else{
+        return view('admin/LoginRegister/Login/login');
+    }
+    
 });
 
 include base_path('/routes/admin/route.php');
