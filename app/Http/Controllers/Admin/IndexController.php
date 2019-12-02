@@ -28,6 +28,6 @@ class IndexController extends Controller
         $data = [];
         $data['yizu'] = House::where('house_status', '1')->count();
         $data['weizu'] = House::where('house_status', '0')->count();
-        return view('admin/Index/welcome', compact('data'));
+        return view('admin/Index/welcomeP', compact('data'));
     }
 }

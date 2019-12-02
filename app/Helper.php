@@ -7,7 +7,7 @@ if(!function_exists('encryption')){
 
 if(!function_exists('template_path')){
     function template_path($plate){
-        return "/static/{$plate}/";
+        return "./static/{$plate}/";
     }
 }
 
