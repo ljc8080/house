@@ -12,7 +12,7 @@ class House extends BaseModel
     }
 
     public function houseown(){
-        return $this->belongsTo('App\Model\houseOwn','house_owner');
+        return $this->belongsTo('App\Model\HouseOwn','house_owner');
     }
 
     public function getAttrNameAttribute($key)
