@@ -1,5 +1,5 @@
 layui.config({
-    base: '/static/Admin/lib/layui/'
+    base: '/static/admin/lib/layui/'
 }).use(['sliderVerify', 'jquery', 'form'], function() {
     var sliderVerify = layui.sliderVerify,
         form = layui.form;
