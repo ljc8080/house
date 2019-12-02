@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin/Index/index');
 });
 
 include base_path('/routes/admin/route.php');
