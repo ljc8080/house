@@ -15,7 +15,7 @@ Route::get('/', function () {
     if(auth()->check()){
         return view('admin/Index/index');
     }else{
-        return view('admin/LoginRegister/Login/login');
+        return view('admin/LoginRegister/login/login');
     }
     
 });
