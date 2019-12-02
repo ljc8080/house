@@ -26,7 +26,7 @@
         <!-- 顶部开始 -->
         <div class="container">
             <div class="logo">
-                <a href="{{template_path('admin')}}index.html">X-admin v2.2</a></div>
+                <a href="{{template_path('admin')}}index.html">租房后台</a></div>
             <div class="left_open">
                 <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
             </div>
@@ -55,11 +55,11 @@
             </ul>
             <ul class="layui-nav right" lay-filter="">
                 <li class="layui-nav-item">
-                    <a href="javascript:;">admin</a>
+                    <a href="javascript:;">{{auth()->user()->truename}}</a>
                     <dl class="layui-nav-child">
                         <!-- 二级菜单 -->
                         <dd>
-                            <a onclick="xadmin.open('个人信息','http://www.baidu.com')">个人信息</a></dd>
+                            <a onclick="xadmin.open('个人信息','{{route('managerme')}}',600,340)">个人信息</a></dd>
                         <dd>
                             <a onclick="xadmin.open('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
                         <dd>
@@ -78,78 +78,67 @@
                 <ul id="nav">
                     <li>
                         <a href="javascript:;">
-                            <i class="iconfont left-nav-li" lay-tips="会员管理">&#xe6b8;</i>
-                            <cite>会员管理</cite>
+                            <i class="iconfont left-nav-li" lay-tips="管理员管理">&#xe6b8;</i>
+                            <cite>管理员管理</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('统计页面','welcome1.html')">
+                                <a onclick="xadmin.add_tab('管理员列表','{{url('admin/manager')}}')">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>统计页面</cite></a>
+                                    <cite>管理员列表</cite></a>
                             </li>
                             <li>
-                                <a onclick="xadmin.add_tab('会员列表(静态表格)','member-list.html')">
+                                <a onclick="xadmin.add_tab('管理员添加','{{route('manageradd')}}',true)">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员列表(静态表格)</cite></a>
-                            </li>
-                            <li>
-                                <a onclick="xadmin.add_tab('会员列表(动态表格)','member-list1.html',true)">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员列表(动态表格)</cite></a>
-                            </li>
-                            <li>
-                                <a onclick="xadmin.add_tab('会员删除','member-del.html')">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员删除</cite></a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    <i class="iconfont">&#xe70b;</i>
-                                    <cite>会员管理</cite>
-                                    <i class="iconfont nav_right">&#xe697;</i></a>
-                                <ul class="sub-menu">
-                                    <li>
-                                        <a onclick="xadmin.add_tab('会员删除','member-del.html')">
-                                            <i class="iconfont">&#xe6a7;</i>
-                                            <cite>会员删除</cite></a>
-                                    </li>
-                                    <li>
-                                        <a onclick="xadmin.add_tab('等级管理','member-list1.html')">
-                                            <i class="iconfont">&#xe6a7;</i>
-                                            <cite>等级管理</cite></a>
-                                    </li>
-                                </ul>
+                                    <cite>管理员添加</cite></a>
                             </li>
                         </ul>
                     </li>
+                    <li>
+                            <a href="javascript:;">
+                                <i class="iconfont">&#xe70b;</i>
+                                <cite>权限管理</cite>
+                                <i class="iconfont nav_right">&#xe697;</i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a onclick="xadmin.add_tab('角色列表','{{url('admin/role')}}')">
+                                        <i class="iconfont">&#xe6a7;</i>
+                                        <cite>角色列表</cite></a>
+                                </li>
+                                <li>
+                                    <a onclick="xadmin.add_tab('权限列表','{{url('admin/rule')}}')">
+                                        <i class="iconfont">&#xe6a7;</i>
+                                        <cite>权限列表</cite></a>
+                                </li>
+                            </ul>
+                        </li>
+                @foreach ($rules as $item)
                     <li>
                         <a href="javascript:;">
                             <i class="iconfont left-nav-li" lay-tips="订单管理">&#xe723;</i>
-                            <cite>订单管理</cite>
+                            <cite>{{$item['name']}}</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
+                            @foreach ($item['son'] as $v)
                             <li>
-                                <a onclick="xadmin.add_tab('订单列表','order-list.html')">
+                                <a onclick="xadmin.add_tab('{{$v['name']}}','{{route($v['route'])}}')">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>订单列表</cite></a>
+                                    <cite>{{$v['name']}}</cite></a>
                             </li>
-                            <li>
-                                <a onclick="xadmin.add_tab('订单列表1','order-list1.html')">
-                                    <i class="iconfont">&#xe6a7;</i>
-                                    <cite>订单列表1</cite></a>
-                            </li>
+                            @endforeach
                         </ul>
                     </li>
+                @endforeach   
                     <li>
                         <a href="javascript:;">
-                            <i class="iconfont left-nav-li" lay-tips="分类管理">&#xe723;</i>
-                            <cite>分类管理</cite>
+                            <i class="iconfont left-nav-li" lay-tips="文章管理">&#xe723;</i>
+                            <cite>文章管理</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('多级分类','cate.html')">
+                            <a onclick="xadmin.add_tab('文章列表','{{route('article.index')}}')">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>多级分类</cite></a>
+                                    <cite>文章列表</cite></a>
                             </li>
                         </ul>
                     </li>

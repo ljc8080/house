@@ -13,14 +13,13 @@ class CheckLogin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,$params)
+    public function handle($request, Closure $next)
     {
         //dump($params??'null');
         //dump($next);
         //dump($request);
-    
         if(!auth()->check()){
-            return redirect()->back()->withErrors('请先登录！');
+            return redirect(route('adminlogin'))->withErrors('请先登录！');
         }
         return $next($request);
     }

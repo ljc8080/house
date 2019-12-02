@@ -13,3 +13,11 @@
     </div>
   </div>
   @endif
+
+  @if (session('error'))
+  <div class="layui-row">
+    <div class="layui-col-sm3 successmsg">
+      {{session('error')}}
+    </div>
+  </div>
+  @endif

@@ -47,12 +47,40 @@ return [
             'driver' => 'local',
             'root' => storage_path('app'),
         ],
-
+        'article' => [
+            //驱动：local代表本地文件
+            'driver' => 'local',
+            'root' => public_path('uploads/article')
+        ],
+        'house' => [
+            //驱动：local代表本地文件
+            'driver' => 'local',
+            'root' => public_path('uploads/house')
+        ],
+        'houseattr' => [
+            //驱动：local代表本地文件
+            'driver' => 'local',
+            'root' => public_path('uploads/houseattr')
+        ],
+        'houseown' => [
+            //驱动：local代表本地文件
+            'driver' => 'local',
+            'root' => public_path('uploads/houseown')
+        ],
+        'hownexcel'=>[
+            'driver' => 'local',
+            'root' => public_path('uploads/excel/houseown')
+        ]
+        ,
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
+        ],
+        'tenant'=>[
+            'driver' => 'local',
+            'root' => public_path('uploads/tenant')
         ],
 
         's3' => [

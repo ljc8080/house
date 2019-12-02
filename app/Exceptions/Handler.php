@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +47,16 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->ajax()) {
+            if ($exception instanceof ValidationException) {
+                error_info('error',400,$exception->validator->messages());
+            }
+        }
+        if($exception instanceof LoginException){
+            return response()->json(
+                [$exception->getMessage()],400
+            );
+        }
         return parent::render($request, $exception);
     }
 }
