@@ -19,7 +19,7 @@ class HouseController extends BaseController
     public function index()
     {
         $data = House::with('houseown')->paginate($this->paginate);
-        return view('Admin/House/index',compact('data'));  
+        return view('admin/House/index',compact('data'));  
     }
 
     /**
@@ -34,7 +34,7 @@ class HouseController extends BaseController
         $attr =subTree($attr);
         //读取房东
         $hown = HouseOwn::pluck('name','id')->toArray();
-       return view('Admin/House/add',compact('city','attr','hown'));
+       return view('admin/House/add',compact('city','attr','hown'));
     }
 
     /**

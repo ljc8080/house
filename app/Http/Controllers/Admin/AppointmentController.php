@@ -19,7 +19,7 @@ class AppointmentController extends BaseController
     {
         $data = AppointmentModel::with('houseown','tenant')->paginate($this->paginate);
         
-        return view('Admin/Appointment/index',compact('data'));
+        return view('admin/Appointment/index',compact('data'));
     }
 
     /**
@@ -31,7 +31,7 @@ class AppointmentController extends BaseController
     {
        $houseown = HouseOwn::pluck('name','id');
        $tenant = Tenant::pluck('truename','id');
-       return view('Admin/Appointment/add',compact('houseown','tenant'));
+       return view('admin/Appointment/add',compact('houseown','tenant'));
     }
 
     /**

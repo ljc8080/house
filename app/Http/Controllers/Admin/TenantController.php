@@ -9,6 +9,6 @@ class TenantController extends BaseController
 {
     public function index(){
         $data = Tenant::paginate($this->paginate);
-        return view('Admin/Tenant/index',compact('data'));
+        return view('admin/Tenant/index',compact('data'));
     }
 }

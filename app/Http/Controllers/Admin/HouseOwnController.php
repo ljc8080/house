@@ -23,7 +23,7 @@ class HouseOwnController extends BaseController
             $style = 'none';
         }
         $data = HouseOwn::paginate($this->paginate);
-        return view('Admin/Houseown/index',compact('data','style'));
+        return view('admin/Houseown/index',compact('data','style'));
     }
 
     /**
@@ -33,7 +33,7 @@ class HouseOwnController extends BaseController
      */
     public function create()
     {
-        return view('Admin/Houseown/add');
+        return view('admin/Houseown/add');
     }
 
     /**

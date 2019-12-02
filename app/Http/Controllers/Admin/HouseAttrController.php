@@ -20,7 +20,7 @@ class HouseAttrController extends Controller
         ->select('house_attr.*', 'h.name as pname')
         ->get();
         $data = get_cate_list($data);
-        return view('Admin/Houseattr/index',compact('data'));
+        return view('admin/Houseattr/index',compact('data'));
     }
 
     /**
@@ -32,7 +32,7 @@ class HouseAttrController extends Controller
     {
         $data = HouseAttr::select('id','pid','name')->get()->toArray();
         if(!empty($data)) $data = get_cate_list($data);
-        return view('Admin/Houseattr/add',compact('data'));
+        return view('admin/Houseattr/add',compact('data'));
     }
 
     /**

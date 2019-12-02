@@ -15,7 +15,7 @@ class ApiLoginController extends BaseController
     public function index()
     {
         $data = ApiLogin::paginate($this->paginate);
-        return view('Admin/Apilogin/index',compact('data'));
+        return view('admin/Apilogin/index',compact('data'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ApiLoginController extends BaseController
      */
     public function create()
     {
-        return view('Admin/Apilogin/add');
+        return view('admin/Apilogin/add');
     }
 
     /**

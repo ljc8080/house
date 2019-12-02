@@ -68,7 +68,7 @@ class ArticleController extends BaseController
             ];
         }
         //$data = Article::with('cate')->limit(120)->get();
-        return view('Admin/Article/list');
+        return view('admin/Article/list');
     }
 
     /**
@@ -80,7 +80,7 @@ class ArticleController extends BaseController
     {
         $data = Category::all()->toArray();
         $data = get_cate_list($data);
-        return view('Admin/Article/add', compact('data'));
+        return view('admin/Article/add', compact('data'));
     }
 
     /**
@@ -123,7 +123,7 @@ class ArticleController extends BaseController
         $cate = Category::all()->toArray();
         $cate = get_cate_list($cate);
         $data = Article::find($id);
-        return view('Admin/Article/edit', compact('cate', 'data'));
+        return view('admin/Article/edit', compact('cate', 'data'));
     }
 
     /**
