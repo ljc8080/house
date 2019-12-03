@@ -16,7 +16,7 @@
                     <div class="layui-card">
                         <div class="layui-card-body ">
                           @if (auth()->user()->username=='admin'||in_array(request()->user,request()->rules))
-                            @include('admin.rule.add')
+                            @include('admin.Rule.add')
                           @endif
                         </div>
                         
